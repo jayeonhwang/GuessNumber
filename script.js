@@ -18,6 +18,9 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = '  ⛔️ No number!';
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct number!';
+    document.querySelector('body').style.backgroundColor = '#60B347';
+    document.querySelector('.number').style.with = '30rem';
+
 
   } else if (guess > secretNumber) {
     if (score > 1) {
@@ -42,3 +45,4 @@ document.querySelector('.check').addEventListener('click', function () {
 
 // set enter guess number event and type of enter number, add warning message for wrong format
 // add messages for user 
+
