@@ -5,8 +5,7 @@
 
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
-
-document.querySelector('.number').textContent = secretNumber;
+console.log(secretNumber);
 // set random number, between 1~20 (+1 for include 20) 
 // Math.trunc - ignor decimal 
 
@@ -18,9 +17,9 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = '  ⛔️ No number!';
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct number!';
+    document.querySelector('.number').textContent = secretNumber;
     document.querySelector('body').style.backgroundColor = '#60B347';
-    document.querySelector('.number').style.with = '30rem';
-
+    document.querySelector('.number').style.width = '30rem';
 
   } else if (guess > secretNumber) {
     if (score > 1) {
