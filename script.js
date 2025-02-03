@@ -3,12 +3,13 @@
 // document.querySelector(.className, #id, tag) - select CSS element and make it active
 //eventTarget.addEventListner (event(ex.'click'), function) - add event  
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highScore = localStorage.getItem('highScore') || 0;
 console.log(secretNumber);
+
 // set random number, between 1~20 (+1 for include 20) 
 // Math.trunc - ignor decimal 
-
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -44,7 +45,6 @@ document.querySelector('.check').addEventListener('click', function () {
 });
 
 document.querySelector('.again').addEventListener('click', function () {
-  let highScore = 0;
 
   if (highScore < score) {
     highScore = score;
@@ -52,6 +52,16 @@ document.querySelector('.again').addEventListener('click', function () {
   } else {
     document.querySelector('.highscore').textContent = highScore;
   }
+
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  score = 20;
+  console.log(secretNumber);
+
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+
 });
 
 
